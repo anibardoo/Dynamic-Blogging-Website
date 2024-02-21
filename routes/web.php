@@ -38,6 +38,8 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/ads', [AdminController::class, 'sendAds'])->name('sendAds');
     //submit checkbox
     Route::post('/broadcast', [AdminController::class, 'selectedBroadcast'])->name('broadcast');
+    Route::get('/brodcast/delete/{subscriber_id}', [AdminController::class, 'deleteSubscriber'])->name('subscriber.delete');
+
     //send checked ads
     Route::post('/sendCheckedAds', [AdminController::class, 'sendCheckedAds'])->name('sendCheckedAds');
     //block and unblock user

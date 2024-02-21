@@ -343,6 +343,15 @@ class AdminController extends Controller
         $subscriber = Subscribe::find($checked);
         return view('selectedBrodcast', compact('subscriber'));
     }
+    //delete email
+    public function deleteSubscriber($subscriber_id)
+    {
+        $subscribers = Subscribe::find($subscriber_id);
+        if (!is_null($subscribers)) {
+            $subscribers->delete();
+        }
+        return redirect('/dashboard');
+    }
     public function sendCheckedAds(Request $request)
     {
         $request->validate([
@@ -551,9 +560,5 @@ class AdminController extends Controller
             $blog->update();
             return redirect('/dashboard')->with(["success" => "The blog is rejected  !!"]);
         }
-    }
-    public function totalData()
-    {
-        $subscriber = Subscribe::all();
     }
 }

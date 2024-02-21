@@ -28,17 +28,17 @@
             @if (Auth::user()->role_id == '1')
             <a href="#dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             @endif
-            <a href="#blogStatus" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Blog status</a>
+            <a href="#blogStatus" class="nav-item nav-link"><i class="fa fa-upload me-2"></i>Blog status</a>
             @if (Auth::user()->role_id == '1')
-            <a href="#usersList" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>User list</a>
+            <a href="#usersList" class="nav-item nav-link"><i class="fa fa-list-alt me-2"></i>User list</a>
             @endif
             @if (Auth::user()->role_id == '1')
-            <a href="#userinqiry" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>User Inqiry</a>
+            <a href="#userinqiry" class="nav-item nav-link"><i class="fa fa-question-circle me-2"></i>User Inqiry</a>
             @endif
             @if (Auth::user()->role_id == '1')
             <a href="#blogs" class="nav-item nav-link"><i class="fa fa-globe" aria-hidden="true"></i> Blogs</a>
             <a href="#subscribers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Subscriers</a>
-            <a href="#boradcast" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Boradcast</a>
+            <a href="#boradcast" class="nav-item nav-link"><i class="fa fa-bullhorn me-2"></i>Boradcast</a>
             @endif
             <a href="#myblogs" class="nav-item nav-link"><i class="fa fa-camera"></i>My blogs</a>
             @if (Auth::user()->role_id == '1')

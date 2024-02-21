@@ -4,60 +4,62 @@
 
 @if (Auth::user()->role_id == '1')
 <!-- Sale & Revenue Start -->
-<div class="row g-5 mb-4" id="dashboard">
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-line fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">Total Subscribers</p>
-                <h6 class="mb-0">
-                    {{$totalSubscriber}}
-                </h6>
+<div class="mt-4" id="dashboard">
+    <div class="row g-5 mb-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Subscribers</p>
+                    <h6 class="mb-0">
+                        {{$totalSubscriber}}
+                    </h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">Total Blogs</p>
-                <h6 class="mb-0">{{$totalBlog}}</h6>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Blogs</p>
+                    <h6 class="mb-0">{{$totalBlog}}</h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-area fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">Your Blogs</p>
-                <h6 class="mb-0">{{$totalMyBlog}}</h6>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-camera fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Your Blogs</p>
+                    <h6 class="mb-0">{{$totalMyBlog}}</h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-area fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">User Inqiry</p>
-                <h6 class="mb-0">{{$totalInquiry}}</h6>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-question-circle fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">User Inqiry</p>
+                    <h6 class="mb-0">{{$totalInquiry}}</h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-area fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">Total user</p>
-                <h6 class="mb-0">{{$totalUser}}</h6>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-users fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total user</p>
+                    <h6 class="mb-0">{{$totalUser}}</h6>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-            <i class="fa fa-chart-area fa-3x text-primary"></i>
-            <div class="ms-3">
-                <p class="mb-2">Blocked user</p>
-                <h6 class="mb-0">{{$BlockedUser}}</h6>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-ban fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Blocked user</p>
+                    <h6 class="mb-0">{{$BlockedUser}}</h6>
+                </div>
             </div>
         </div>
     </div>
@@ -472,7 +474,7 @@
 @endif
 
 @if (Auth::user()->role_id == '1')
-<!-- subscribers  -->
+<!-- checked subscribers  brodcast -->
 
 <!-- accordion -->
 <div class="container mt-5" id="subscribers">
@@ -509,7 +511,7 @@
                                             <td><input class="form-check-input" type="checkbox" value="{{$show->subscriber_id}}" id="" name="active[]" id="defaultCheck1"></td>
                                             <td>{{$show->subscriber_id}}</td>
                                             <td>{{$show->email}}</td>
-                                            <td> <a href=""> <button type="button" class="me-2"><img src="{{asset('storage/bin.png')}}" hight="30px" width="30px" alt=""></button></a>
+                                            <td> <a href="{{route('subscriber.delete',['subscriber_id'=>$show->subscriber_id])}}"> <button type="button" class="me-2"><img src="{{asset('storage/bin.png')}}" hight="30px" width="30px" alt=""></button></a>
                                             </td>
                                         </div>
                                     </tr>
