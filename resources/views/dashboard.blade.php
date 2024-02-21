@@ -4,7 +4,7 @@
 
 @if (Auth::user()->role_id == '1')
 <!-- Sale & Revenue Start -->
-<div class="row g-4 mb-4" id="dashboard">
+<div class="row g-5 mb-4" id="dashboard">
     <div class="col-sm-6 col-xl-3">
         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
             <i class="fa fa-chart-line fa-3x text-primary"></i>
@@ -40,6 +40,24 @@
             <div class="ms-3">
                 <p class="mb-2">User Inqiry</p>
                 <h6 class="mb-0">{{$totalInquiry}}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+            <i class="fa fa-chart-area fa-3x text-primary"></i>
+            <div class="ms-3">
+                <p class="mb-2">Total user</p>
+                <h6 class="mb-0">{{$totalUser}}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+            <i class="fa fa-chart-area fa-3x text-primary"></i>
+            <div class="ms-3">
+                <p class="mb-2">Blocked user</p>
+                <h6 class="mb-0">{{$BlockedUser}}</h6>
             </div>
         </div>
     </div>

@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 
-
 /**
  * Summary of AdminController
  */
@@ -88,7 +87,7 @@ class AdminController extends Controller
     {
         $admin = Admin::first();
         $feature = Feature::all();
-        $blog = Blog::all();
+        $blog = Blog::orderBy('created_at', 'desc')->get();
         $project = Project::all();
         $contact = Contact::all();
         $data = compact('admin', 'feature', 'blog', 'project', 'contact');
@@ -162,8 +161,8 @@ class AdminController extends Controller
         $url = url('/admin/blog');
         $admin = Admin::find('1');
         $feature = Feature::all();
-        $blogs = Blog::orderBy('created_at','desc')->get();
-        $myBlog=Auth::user()->blogs()->orderBy('created_at','desc')->get();
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
+        $myBlog = Auth::user()->blogs()->orderBy('created_at', 'desc')->get();
         $project = Project::find('1');
         $subscriber = Subscribe::all();
         $contact = Contact::find('1');
@@ -175,19 +174,38 @@ class AdminController extends Controller
         foreach ($subscriber as $info) {
             $totalSubscriber++;
         }
+
         $totalBlog = 0;
         foreach ($blogs as $info) {
-            $totalBlog++;
+            if ($info->status == '1')
+                $totalBlog++;
         }
+
         $totalMyBlog = 0;
         foreach (Auth::user()->blogs as $info) {
             $totalMyBlog++;
         }
+
         $totalInquiry = 0;
         foreach ($inquiry as $info) {
             $totalInquiry++;
         }
-        $data2 = compact('admin', 'url', 'feature', 'blogs', 'project', 'inquiry', 'subscriber', 'contact', 'broadcast', 'users', 'totalSubscriber', 'totalBlog', 'totalMyBlog', 'totalInquiry','myBlog');
+
+        $totalUser = 0;
+        foreach ($users as $info) {
+            if ($info->role_id == '2') {
+                $totalUser++;
+            }
+        }
+
+        $BlockedUser = 0;
+        foreach ($users as $info) {
+            if ($info->status == '2') {
+                $BlockedUser++;
+            }
+        }
+
+        $data2 = compact('admin', 'url', 'feature', 'blogs', 'project', 'inquiry', 'subscriber', 'contact', 'broadcast', 'users', 'totalSubscriber', 'totalBlog', 'totalMyBlog', 'totalInquiry', 'myBlog', 'totalUser','BlockedUser');
         return view('dashboard')->with($data2);
     }
     // show blog data in the form

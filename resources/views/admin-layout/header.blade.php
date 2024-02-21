@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link smooth-link" href="#project">Project</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link smooth-link" href="#contact">Contact us</a>
+                    </li>
                 </ul>
                 <form class="form-inline">
 
